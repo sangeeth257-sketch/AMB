@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+  <meta charset="UTF-8">
+  <title>Meher Baba Countdown</title>
+  <style>
+    body {
+      text-align: center;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f5f5f5;
+      padding: 20px;
+    }
+    img {
+      max-width: 300px;
+      border-radius: 10px;
+    }
+    h1 {
+      color: #5a2a83;
+      margin-top: 20px;
+    }
+    #countdown {
+      font-size: 2em;
+      color: #d9534f;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <img src="https://i0.wp.com/avatarmeherbabatrust.org/wp-content/uploads/2019/02/1_L.jpg?ssl=1" alt="Avatar Meher Baba">
+  <h1>Count Down "అవతార్ మెహెర్ బాబా చల్లపల్లి సెంటర్ - 60వ వార్షికోత్సవం – అఖండ ఏక నామం"</h1>
+  <div id="countdown"></div>
+
+  <script>
+    const targetDate = new Date("August 29, 2025 07:00:00").getTime();
+
+    const countdown = setInterval(() => {
+      const now = new Date().getTime();
+      const distance = targetDate - now;
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      document.getElementById("countdown").innerHTML =
+        `${days} రోజులు ${hours} గంటలు ${minutes} నిమిషాలు ${seconds} సెకన్లు`;
+
+      if (distance < 0) {
+        clearInterval(countdown);
+        document.getElementById("countdown").innerHTML = "ఈవెంట్ ప్రారంభమైంది!";
+      }
+    }, 1000);
+  </script>
+</body>
+</html>

@@ -31,25 +31,25 @@
   <div id="countdown"></div>
 
   <script>
-    const targetDate = new Date("August 29, 2025 07:00:00").getTime();
+  const targetDate = new Date("August 29, 2025 07:00:00").getTime();
 
-    const countdown = setInterval(() => {
-      const now = new Date().getTime();
-      const distance = targetDate - now;
+  const countdown = setInterval(() => {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
 
-      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    const totalHours = Math.floor(distance / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-      document.getElementById("countdown").innerHTML =
-        `${days} రోజులు ${hours} గంటలు ${minutes} నిమిషాలు ${seconds} సెకన్లు`;
+    document.getElementById("countdown").innerHTML =
+      `${totalHours} గంటలు ${minutes} నిమిషాలు ${seconds} సెకన్లు`;
 
-      if (distance < 0) {
-        clearInterval(countdown);
-        document.getElementById("countdown").innerHTML = "ఈవెంట్ ప్రారంభమైంది!";
-      }
-    }, 1000);
-  </script>
+    if (distance < 0) {
+      clearInterval(countdown);
+      document.getElementById("countdown").innerHTML = "ఈవెంట్ ప్రారంభమైంది!";
+    }
+  }, 1000);
+</script>
 </body>
 </html>
+
